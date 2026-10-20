@@ -1,0 +1,165 @@
+{
+  "checkedAt": "2026-10-20T07:20:51.365Z",
+  "scope": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+  "samePasswordAccounts": {
+    "userA": "VvQhtxxkLYTlasKGuNc615WXiqNuhTJQ",
+    "userB": "CZFnTUd0tenyOWJyuyFMRfcg4mLVANKo",
+    "sameGeneratedPassword": true
+  },
+  "password": "[not recorded]",
+  "cookies": "[not recorded]",
+  "checks": [
+    {
+      "request": "GET /",
+      "response": {
+        "status": 302,
+        "location": "/login",
+        "body": {}
+      }
+    },
+    {
+      "request": "GET /api/entries",
+      "response": {
+        "status": 401,
+        "location": null,
+        "body": {
+          "error": "로그인이 필요합니다."
+        }
+      }
+    },
+    {
+      "request": "GET /api/export",
+      "response": {
+        "status": 401,
+        "location": null,
+        "body": {
+          "error": "로그인이 필요합니다."
+        }
+      }
+    },
+    {
+      "request": "GET /api/review",
+      "response": {
+        "status": 401,
+        "location": null,
+        "body": {
+          "error": "로그인이 필요합니다."
+        }
+      }
+    },
+    {
+      "request": "GET /source/",
+      "response": {
+        "status": 302,
+        "location": "/login",
+        "body": {}
+      }
+    },
+    {
+      "request": "POST /api/auth/sign-up/email (same email, different case)",
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "가입 정보를 확인해 주세요. 이미 가입했다면 로그인해 주세요."
+        }
+      }
+    },
+    {
+      "request": "POST /api/auth/sign-in/email (known email, wrong password)",
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "이메일 또는 비밀번호가 올바르지 않습니다."
+        }
+      }
+    },
+    {
+      "request": "POST /api/auth/sign-in/email (unknown email)",
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "이메일 또는 비밀번호가 올바르지 않습니다."
+        }
+      }
+    },
+    {
+      "request": "GET /api/tasks?planId=[user-A-plan-id] as user B",
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "request": "GET /api/entries?history=[user-A-plan-id] as user B",
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "request": "GET /api/review?planId=[user-A-plan-id] as user B",
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "request": "POST /api/tasks as user B",
+      "body": {
+        "id": "[user-A-task-id]",
+        "planId": "[user-A-plan-id]",
+        "title": "다른 계정의 수정 시도",
+        "otherFields": "same as original"
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "request": "DELETE /api/tasks as user B",
+      "body": {
+        "id": "[user-A-task-id]",
+        "version": 0
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "request": "GET /api/tasks as owner A after both rejected mutations",
+      "response": {
+        "status": 200,
+        "taskStillExists": true,
+        "allFieldsUnchanged": true
+      }
+    },
+    {
+      "request": "GET /api/entries using session after POST sign-out",
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "로그인이 필요합니다."
+        }
+      }
+    }
+  ],
+  "signup": true,
+  "login": true,
+  "logout": true,
+  "duplicateEmailRejected": true,
+  "uniformLoginError": true,
+  "foreignPlanRejected": true,
+  "foreignExportEmpty": true
+}
