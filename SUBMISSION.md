@@ -1,7 +1,7 @@
 # 과제 6 제출
 
 결과물: https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/
-소스: https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/source/
+소스: https://github.com/jwonnlee00-lab/repo
 
 ## 확인 방법 4줄
 
@@ -33,3 +33,4 @@
 ## 검증 범위
 
 JSON 내보내기와 재조회에서 ID·날짜·값·단위 일치를 검사했고, 스크립트 모양 입력의 글자 표시와 실행되지 않음을 로컬 브라우저에서 확인했다. 소스·빌드·ZIP·Git 기록의 알려진 비밀키 패턴 검사도 수행했다. 새 시크릿 창 UI 검증은 Windows 도구가 현재 브라우저 URL을 확인하지 못해 중단됐으므로 T06-C01은 그 조건까지 검증 완료로 표시하지 않는다. 쿠키·인증 헤더 없는 HTTP 접근은 별도로 확인한다.
+
