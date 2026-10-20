@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+const url='http://127.0.0.1:8787';
+const post=async(path,v)=>{const r=await fetch(url+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(v)});return {status:r.status,data:await r.json()}};
+const plan=(await post('/api/entries',{id:'',date:'2026-10-14',startDate:'2026-10-14',endDate:'2026-10-14',priority:'normal',success:'검증',version:0,title:'카드3 검증',planned:60,actual:null,done:'',review:'',next:'',parent:''})).data;
+try{const task=(await post('/api/tasks',{id:'',planId:plan.id,title:'검증용 Velog',dueDate:'2026-10-14',priority:'normal',tags:['검증'],estimated:60,completed:false,version:0})).data;
+const log={requestKey:crypto.randomUUID(),taskId:task.id,startedAt:'2026-10-14T10:00:00+09:00',endedAt:'2026-10-14T13:00:00+09:00',blocked:'교안 이론 정리',note:'포스팅'};
+const r=await Promise.all([post('/api/executions',log),post('/api/executions',log)]);assert.ok(r.every(x=>x.status===200));let logs=await(await fetch(url+'/api/executions?taskId='+task.id)).json();assert.equal(logs.length,1);assert.equal(logs[0].minutes,180);
+const completion={requestKey:crypto.randomUUID(),taskId:task.id,version:0};const completed=await Promise.all([post('/api/complete',completion),post('/api/complete',completion),post('/api/complete',{...completion,requestKey:crypto.randomUUID()})]);assert.ok(completed.every(r=>r.status===200));const tasks=await(await fetch(url+'/api/tasks?planId='+plan.id)).json();assert.equal(tasks.filter(t=>t.completed).length,1);assert.equal(tasks[0].estimated,60);assert.deepEqual((await(await fetch(url+'/api/entries')).json()).find(p=>p.id===plan.id),plan);
+const reopened=(await post('/api/tasks',{...tasks[0],completed:false})).data;assert.equal((await post('/api/complete',completion)).status,200);const again=await(await fetch(url+'/api/tasks?planId='+plan.id)).json();assert.equal(again[0].completed,false);assert.equal((await(await fetch(url+'/api/executions?taskId='+task.id)).json()).length,1);
+console.log('PASS 카드3: 시작·종료·실제180분·막힌 이유, 원본 예상60분 유지, 병렬 중복 기록1건, 완료수+1, 되돌린 뒤 오래된 완료 재요청 무시');
+}finally{await fetch(url+'/api/entries',{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:plan.id})})}
