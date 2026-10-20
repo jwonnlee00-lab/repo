@@ -15,6 +15,20 @@
       "when": 1792455870580,
       "tag": "0001_free_patriot",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1792456350339,
+      "tag": "0002_faulty_kinsey_walden",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1792456436000,
+      "tag": "0003_married_machine_man",
+      "breakpoints": true
     }
   ]
 }

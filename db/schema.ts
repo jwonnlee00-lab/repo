@@ -5,3 +5,7 @@ export const entries=sqliteTable('entries',{
  planned:integer('planned').notNull(),actual:integer('actual'),done:text('done').notNull().default(''),review:text('review').notNull().default(''),next:text('next').notNull().default(''),parent:text('parent').notNull().default('')
 });
 export const planHistory=sqliteTable('plan_history',{entryId:text('entry_id').notNull(),version:integer('version').notNull(),snapshot:text('snapshot').notNull(),savedAt:text('saved_at').notNull()},t=>[primaryKey({columns:[t.entryId,t.version]})]);
+export const tasks=sqliteTable('tasks',{
+ id:text('id').primaryKey(),planId:text('plan_id').notNull().references(()=>entries.id,{onDelete:'cascade'}),title:text('title').notNull(),dueDate:text('due_date').notNull(),priority:text('priority').notNull(),tags:text('tags').notNull(),estimated:integer('estimated'),completed:integer('completed',{mode:'boolean'}).notNull().default(false),createdAt:text('created_at').notNull(),version:integer('version').notNull().default(0)
+});
+
