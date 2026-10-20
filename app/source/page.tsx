@@ -1,0 +1,1 @@
+export default function Source(){return <main style={{padding:40}}><h1>플랜두씨 소스</h1><p>인증 방식과 검증 기록은 소스 저장소의 과제 7 문서에서 확인할 수 있습니다.</p><a href="https://github.com/jwonnlee00-lab/repo">GitHub 소스 저장소</a><p><a href="/">내 다이어리로 돌아가기</a></p></main>}

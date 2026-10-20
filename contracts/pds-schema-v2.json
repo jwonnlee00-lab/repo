@@ -115,6 +115,12 @@
           "type": "string",
           "nullable": false,
           "description": "다음 계획의 출발 계획 ID. 연결 없으면 빈 문자열, DB FK 아님"
+        },
+        "ownerId": {
+          "column": "owner_id",
+          "type": "string",
+          "nullable": true,
+          "description": "과제7: 인증 사용자 ID. 기존 미이전 자료만 null; 입력으로 지정할 수 없고 서버가 배정함"
         }
       }
     },
@@ -428,5 +434,17 @@
     "estimated": "null last",
     "priority": "high, normal, low"
   },
-  "disclosure": "No login. Anyone with the URL can read, edit, delete and export the shared dataset."
+  "disclosure": "No login. Anyone with the URL can read, edit, delete and export the shared dataset.",
+  "security": {
+    "authentication": "Better Auth 1.7.11",
+    "ownership": "entries.ownerId, all child records authorized through owning plan",
+    "exportExcluded": [
+      "auth_user",
+      "auth_session",
+      "auth_account",
+      "auth_verification",
+      "legacy_claims"
+    ],
+    "legacyTransfer": "operator-confirmed one-time claim; email signup alone does not transfer records"
+  }
 }

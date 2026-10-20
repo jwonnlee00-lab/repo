@@ -1,6 +1,6 @@
 import {sqliteTable,text,integer,primaryKey,uniqueIndex} from 'drizzle-orm/sqlite-core';
 export const entries=sqliteTable('entries',{
- id:text('id').primaryKey(),date:text('date').notNull(),title:text('title').notNull(),
+ id:text('id').primaryKey(),ownerId:text('owner_id'),date:text('date').notNull(),title:text('title').notNull(),
  startDate:text('start_date'),endDate:text('end_date'),priority:text('priority'),success:text('success'),version:integer('version').notNull().default(0),
  planned:integer('planned').notNull(),actual:integer('actual'),done:text('done').notNull().default(''),review:text('review').notNull().default(''),next:text('next').notNull().default(''),parent:text('parent').notNull().default('')
 });
@@ -14,3 +14,9 @@ export const completions=sqliteTable('completions',{id:text('id').primaryKey(),t
 export const carryovers=sqliteTable('carryovers',{sourcePlanId:text('source_plan_id').primaryKey(),nextPlanId:text('next_plan_id').notNull(),improvement:text('improvement').notNull(),nextDate:text('next_date').notNull().default('2026-10-21'),planned:integer('planned').notNull().default(30),createdAt:text('created_at').notNull()});
 
 
+
+export const authUser=sqliteTable('auth_user',{id:text('id').primaryKey(),name:text('name').notNull(),email:text('email').notNull().unique(),emailVerified:integer('email_verified',{mode:'boolean'}).notNull(),image:text('image'),createdAt:integer('created_at',{mode:'timestamp_ms'}).notNull(),updatedAt:integer('updated_at',{mode:'timestamp_ms'}).notNull()});
+export const authSession=sqliteTable('auth_session',{id:text('id').primaryKey(),expiresAt:integer('expires_at',{mode:'timestamp_ms'}).notNull(),token:text('token').notNull().unique(),createdAt:integer('created_at',{mode:'timestamp_ms'}).notNull(),updatedAt:integer('updated_at',{mode:'timestamp_ms'}).notNull(),ipAddress:text('ip_address'),userAgent:text('user_agent'),userId:text('user_id').notNull().references(()=>authUser.id,{onDelete:'cascade'})});
+export const authAccount=sqliteTable('auth_account',{id:text('id').primaryKey(),accountId:text('account_id').notNull(),providerId:text('provider_id').notNull(),userId:text('user_id').notNull().references(()=>authUser.id,{onDelete:'cascade'}),accessToken:text('access_token'),refreshToken:text('refresh_token'),idToken:text('id_token'),accessTokenExpiresAt:integer('access_token_expires_at',{mode:'timestamp_ms'}),refreshTokenExpiresAt:integer('refresh_token_expires_at',{mode:'timestamp_ms'}),scope:text('scope'),password:text('password'),createdAt:integer('created_at',{mode:'timestamp_ms'}).notNull(),updatedAt:integer('updated_at',{mode:'timestamp_ms'}).notNull()});
+export const authVerification=sqliteTable('auth_verification',{id:text('id').primaryKey(),identifier:text('identifier').notNull(),value:text('value').notNull(),expiresAt:integer('expires_at',{mode:'timestamp_ms'}).notNull(),createdAt:integer('created_at',{mode:'timestamp_ms'}).notNull(),updatedAt:integer('updated_at',{mode:'timestamp_ms'}).notNull()});
+export const legacyClaims=sqliteTable('legacy_claims',{id:text('id').primaryKey(),userId:text('user_id').notNull(),migratedCount:integer('migrated_count').notNull(),createdAt:text('created_at').notNull()});

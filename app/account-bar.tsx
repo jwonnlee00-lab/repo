@@ -1,0 +1,3 @@
+"use client";
+import {useEffect,useState} from 'react';
+export default function AccountBar(){const [email,E]=useState(''),[busy,B]=useState(false),[error,X]=useState('');useEffect(()=>{fetch('/api/auth/get-session',{cache:'no-store'}).then(r=>r.json()).then((v:any)=>E(v.user?.email||''))},[]);async function logout(){B(true);try{const r=await fetch('/api/auth/sign-out',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(!r.ok)throw Error();window.location.assign('/login')}catch{X('로그아웃하지 못했습니다. 다시 시도해 주세요.');B(false)}}return <div className="accountbar"><span>{email} · 내 계정의 다이어리</span><button className="text" disabled={busy} onClick={logout}>로그아웃</button>{error&&<span role="alert">{error}</span>}</div>}
