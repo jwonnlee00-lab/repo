@@ -1,0 +1,1005 @@
+{
+  "checkedAt": "2026-10-20T07:27:49.896Z",
+  "scope": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+  "password": "[not recorded]",
+  "cookies": "[not recorded]",
+  "seed": {
+    "A": {
+      "userId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+      "planIds": [
+        "3b4b67c3-ef34-4416-9323-a18a74f282ab",
+        "f5db1a9b-a725-42cb-84ae-7e710e8e6ede"
+      ],
+      "taskIds": [
+        "3990c9ae-79c4-4c13-917a-637df95d2b28",
+        "08f70e87-573c-4dac-965b-2ea910de562b"
+      ],
+      "counts": {
+        "entries": 2,
+        "plan_history": 2,
+        "tasks": 2,
+        "executions": 0,
+        "completions": 0,
+        "carryovers": 0
+      }
+    },
+    "B": {
+      "userId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+      "planIds": [
+        "6b6caf95-aeeb-4f4e-941e-a5c9e8be56c9",
+        "83703a9b-2a4f-41a6-a689-e6d82b92a3ed"
+      ],
+      "taskIds": [
+        "d9f715c6-99d8-4b01-9d47-b61125012541",
+        "f9ef3c67-1161-4b04-b06f-b651af87fbb1"
+      ],
+      "counts": {
+        "entries": 2,
+        "plan_history": 2,
+        "tasks": 2,
+        "executions": 0,
+        "completions": 0,
+        "carryovers": 0
+      }
+    }
+  },
+  "checks": [
+    {
+      "label": "A -> B",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries?history=6b6caf95-aeeb-4f4e-941e-a5c9e8be56c9",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "A -> B",
+      "request": {
+        "method": "POST",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "6b6caf95-aeeb-4f4e-941e-a5c9e8be56c9",
+          "date": "2026-10-20",
+          "title": "다른 계정의 수정 시도",
+          "startDate": "2026-10-20",
+          "endDate": "2026-10-20",
+          "priority": "normal",
+          "success": "계정별 자료 격리 확인",
+          "version": 0,
+          "planned": 30,
+          "actual": null,
+          "done": "",
+          "review": "",
+          "next": "",
+          "parent": "",
+          "ownerId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "A -> B",
+      "request": {
+        "method": "DELETE",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "6b6caf95-aeeb-4f4e-941e-a5c9e8be56c9"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "A -> B",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/tasks?planId=6b6caf95-aeeb-4f4e-941e-a5c9e8be56c9",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "A -> B",
+      "request": {
+        "method": "POST",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/tasks",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "d9f715c6-99d8-4b01-9d47-b61125012541",
+          "planId": "6b6caf95-aeeb-4f4e-941e-a5c9e8be56c9",
+          "title": "다른 계정의 할 일 수정 시도",
+          "dueDate": "2026-10-20",
+          "priority": "normal",
+          "tags": [
+            "접근검증"
+          ],
+          "estimated": 10,
+          "completed": false,
+          "version": 0,
+          "createdAt": "2026-10-20T07:27:38.448Z"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "A -> B",
+      "request": {
+        "method": "DELETE",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/tasks",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "d9f715c6-99d8-4b01-9d47-b61125012541",
+          "version": 0
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "A -> B",
+      "request": {
+        "method": "POST",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/tasks",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "d9f715c6-99d8-4b01-9d47-b61125012541",
+          "planId": "3b4b67c3-ef34-4416-9323-a18a74f282ab",
+          "title": "남의 할 일을 내 계획으로 이동 시도",
+          "dueDate": "2026-10-20",
+          "priority": "normal",
+          "tags": [
+            "접근검증"
+          ],
+          "estimated": 10,
+          "completed": false,
+          "version": 0,
+          "createdAt": "2026-10-20T07:27:38.448Z"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "A -> B",
+      "request": {
+        "method": "POST",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/tasks",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "",
+          "planId": "6b6caf95-aeeb-4f4e-941e-a5c9e8be56c9",
+          "title": "다른 계정 계획에 새 할 일 생성 시도",
+          "dueDate": "2026-10-20",
+          "priority": "normal",
+          "tags": [
+            "접근검증"
+          ],
+          "estimated": 10,
+          "completed": false,
+          "version": 0,
+          "createdAt": "2026-10-20T07:27:38.448Z"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "A -> B before/after",
+      "before": {
+        "entries": 2,
+        "plan_history": 2,
+        "tasks": 2,
+        "executions": 0,
+        "completions": 0,
+        "carryovers": 0
+      },
+      "after": {
+        "entries": 2,
+        "plan_history": 2,
+        "tasks": 2,
+        "executions": 0,
+        "completions": 0,
+        "carryovers": 0
+      },
+      "allSixTablesUnchanged": true,
+      "newForeignRows": 0
+    },
+    {
+      "label": "B -> A",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries?history=3b4b67c3-ef34-4416-9323-a18a74f282ab",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "B -> A",
+      "request": {
+        "method": "POST",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "3b4b67c3-ef34-4416-9323-a18a74f282ab",
+          "date": "2026-10-20",
+          "title": "다른 계정의 수정 시도",
+          "startDate": "2026-10-20",
+          "endDate": "2026-10-20",
+          "priority": "normal",
+          "success": "계정별 자료 격리 확인",
+          "version": 0,
+          "planned": 30,
+          "actual": null,
+          "done": "",
+          "review": "",
+          "next": "",
+          "parent": "",
+          "ownerId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "B -> A",
+      "request": {
+        "method": "DELETE",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "3b4b67c3-ef34-4416-9323-a18a74f282ab"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "B -> A",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/tasks?planId=3b4b67c3-ef34-4416-9323-a18a74f282ab",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "B -> A",
+      "request": {
+        "method": "POST",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/tasks",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "3990c9ae-79c4-4c13-917a-637df95d2b28",
+          "planId": "3b4b67c3-ef34-4416-9323-a18a74f282ab",
+          "title": "다른 계정의 할 일 수정 시도",
+          "dueDate": "2026-10-20",
+          "priority": "normal",
+          "tags": [
+            "접근검증"
+          ],
+          "estimated": 10,
+          "completed": false,
+          "version": 0,
+          "createdAt": "2026-10-20T07:27:37.492Z"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "B -> A",
+      "request": {
+        "method": "DELETE",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/tasks",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "3990c9ae-79c4-4c13-917a-637df95d2b28",
+          "version": 0
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "B -> A",
+      "request": {
+        "method": "POST",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/tasks",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "3990c9ae-79c4-4c13-917a-637df95d2b28",
+          "planId": "6b6caf95-aeeb-4f4e-941e-a5c9e8be56c9",
+          "title": "남의 할 일을 내 계획으로 이동 시도",
+          "dueDate": "2026-10-20",
+          "priority": "normal",
+          "tags": [
+            "접근검증"
+          ],
+          "estimated": 10,
+          "completed": false,
+          "version": 0,
+          "createdAt": "2026-10-20T07:27:37.492Z"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "B -> A",
+      "request": {
+        "method": "POST",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/tasks",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "id": "",
+          "planId": "3b4b67c3-ef34-4416-9323-a18a74f282ab",
+          "title": "다른 계정 계획에 새 할 일 생성 시도",
+          "dueDate": "2026-10-20",
+          "priority": "normal",
+          "tags": [
+            "접근검증"
+          ],
+          "estimated": 10,
+          "completed": false,
+          "version": 0,
+          "createdAt": "2026-10-20T07:27:37.492Z"
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "B -> A before/after",
+      "before": {
+        "entries": 2,
+        "plan_history": 2,
+        "tasks": 2,
+        "executions": 0,
+        "completions": 0,
+        "carryovers": 0
+      },
+      "after": {
+        "entries": 2,
+        "plan_history": 2,
+        "tasks": 2,
+        "executions": 0,
+        "completions": 0,
+        "carryovers": 0
+      },
+      "allSixTablesUnchanged": true,
+      "newForeignRows": 0
+    },
+    {
+      "label": "A list isolation",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "id": "3b4b67c3-ef34-4416-9323-a18a74f282ab",
+            "ownerId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+            "date": "2026-10-20",
+            "title": "카드4 A 검증 계획 1",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          },
+          {
+            "id": "f5db1a9b-a725-42cb-84ae-7e710e8e6ede",
+            "ownerId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+            "date": "2026-10-20",
+            "title": "카드4 A 검증 계획 2",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          }
+        ]
+      }
+    },
+    {
+      "label": "A URL/header forgery",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries?ownerId=o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy&userId=o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy&owner_id=o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]",
+          "X-User-Id": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+          "X-Owner-Id": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "id": "3b4b67c3-ef34-4416-9323-a18a74f282ab",
+            "ownerId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+            "date": "2026-10-20",
+            "title": "카드4 A 검증 계획 1",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          },
+          {
+            "id": "f5db1a9b-a725-42cb-84ae-7e710e8e6ede",
+            "ownerId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+            "date": "2026-10-20",
+            "title": "카드4 A 검증 계획 2",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          }
+        ]
+      }
+    },
+    {
+      "label": "A GET body forgery",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "ownerId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+          "userId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+          "owner_id": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "id": "3b4b67c3-ef34-4416-9323-a18a74f282ab",
+            "ownerId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+            "date": "2026-10-20",
+            "title": "카드4 A 검증 계획 1",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          },
+          {
+            "id": "f5db1a9b-a725-42cb-84ae-7e710e8e6ede",
+            "ownerId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+            "date": "2026-10-20",
+            "title": "카드4 A 검증 계획 2",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          }
+        ]
+      }
+    },
+    {
+      "label": "A POST body owner forgery",
+      "request": {
+        "method": "POST",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]",
+          "X-User-Id": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+          "X-Owner-Id": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy"
+        },
+        "body": {
+          "id": "",
+          "date": "2026-10-20",
+          "startDate": "2026-10-20",
+          "endDate": "2026-10-20",
+          "priority": "normal",
+          "success": "계정별 자료 격리 확인",
+          "version": 0,
+          "title": "카드4 A 소유자 위조 입력",
+          "planned": 30,
+          "actual": null,
+          "done": "",
+          "review": "",
+          "next": "",
+          "parent": "",
+          "ownerId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+          "userId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+          "owner_id": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "dcff7b35-fad6-4306-b4e1-7f0da0709038",
+          "date": "2026-10-20",
+          "title": "카드4 A 소유자 위조 입력",
+          "startDate": "2026-10-20",
+          "endDate": "2026-10-20",
+          "priority": "normal",
+          "success": "계정별 자료 격리 확인",
+          "version": 0,
+          "planned": 30,
+          "actual": null,
+          "done": "",
+          "review": "",
+          "next": "",
+          "parent": "",
+          "ownerId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j"
+        }
+      }
+    },
+    {
+      "label": "A forged creation effect",
+      "victimBefore": {
+        "entries": 2,
+        "plan_history": 2,
+        "tasks": 2,
+        "executions": 0,
+        "completions": 0,
+        "carryovers": 0
+      },
+      "victimAfter": {
+        "entries": 2,
+        "plan_history": 2,
+        "tasks": 2,
+        "executions": 0,
+        "completions": 0,
+        "carryovers": 0
+      },
+      "victimAllFieldsUnchanged": true,
+      "createdOwnerIsActor": true,
+      "exportHasNoForeignPlansOrTasks": true
+    },
+    {
+      "label": "B list isolation",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "id": "6b6caf95-aeeb-4f4e-941e-a5c9e8be56c9",
+            "ownerId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+            "date": "2026-10-20",
+            "title": "카드4 B 검증 계획 1",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          },
+          {
+            "id": "83703a9b-2a4f-41a6-a689-e6d82b92a3ed",
+            "ownerId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+            "date": "2026-10-20",
+            "title": "카드4 B 검증 계획 2",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          }
+        ]
+      }
+    },
+    {
+      "label": "B URL/header forgery",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries?ownerId=94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j&userId=94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j&owner_id=94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]",
+          "X-User-Id": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+          "X-Owner-Id": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "id": "6b6caf95-aeeb-4f4e-941e-a5c9e8be56c9",
+            "ownerId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+            "date": "2026-10-20",
+            "title": "카드4 B 검증 계획 1",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          },
+          {
+            "id": "83703a9b-2a4f-41a6-a689-e6d82b92a3ed",
+            "ownerId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+            "date": "2026-10-20",
+            "title": "카드4 B 검증 계획 2",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          }
+        ]
+      }
+    },
+    {
+      "label": "B GET body forgery",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]"
+        },
+        "body": {
+          "ownerId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+          "userId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+          "owner_id": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "id": "6b6caf95-aeeb-4f4e-941e-a5c9e8be56c9",
+            "ownerId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+            "date": "2026-10-20",
+            "title": "카드4 B 검증 계획 1",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          },
+          {
+            "id": "83703a9b-2a4f-41a6-a689-e6d82b92a3ed",
+            "ownerId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy",
+            "date": "2026-10-20",
+            "title": "카드4 B 검증 계획 2",
+            "startDate": "2026-10-20",
+            "endDate": "2026-10-20",
+            "priority": "normal",
+            "success": "계정별 자료 격리 확인",
+            "version": 0,
+            "planned": 30,
+            "actual": null,
+            "done": "",
+            "review": "",
+            "next": "",
+            "parent": ""
+          }
+        ]
+      }
+    },
+    {
+      "label": "B POST body owner forgery",
+      "request": {
+        "method": "POST",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "[actor session redacted]",
+          "X-User-Id": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+          "X-Owner-Id": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j"
+        },
+        "body": {
+          "id": "",
+          "date": "2026-10-20",
+          "startDate": "2026-10-20",
+          "endDate": "2026-10-20",
+          "priority": "normal",
+          "success": "계정별 자료 격리 확인",
+          "version": 0,
+          "title": "카드4 B 소유자 위조 입력",
+          "planned": 30,
+          "actual": null,
+          "done": "",
+          "review": "",
+          "next": "",
+          "parent": "",
+          "ownerId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+          "userId": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j",
+          "owner_id": "94uW74KhqTYhCbzzoSlj4G8K9YvjYi4j"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "4928a8cc-a9b3-4034-964c-7499e9b58fea",
+          "date": "2026-10-20",
+          "title": "카드4 B 소유자 위조 입력",
+          "startDate": "2026-10-20",
+          "endDate": "2026-10-20",
+          "priority": "normal",
+          "success": "계정별 자료 격리 확인",
+          "version": 0,
+          "planned": 30,
+          "actual": null,
+          "done": "",
+          "review": "",
+          "next": "",
+          "parent": "",
+          "ownerId": "o3XVqzk8c4BxzGQuINjB0sS0EJKXlIuy"
+        }
+      }
+    },
+    {
+      "label": "B forged creation effect",
+      "victimBefore": {
+        "entries": 3,
+        "plan_history": 3,
+        "tasks": 2,
+        "executions": 0,
+        "completions": 0,
+        "carryovers": 0
+      },
+      "victimAfter": {
+        "entries": 3,
+        "plan_history": 3,
+        "tasks": 2,
+        "executions": 0,
+        "completions": 0,
+        "carryovers": 0
+      },
+      "victimAllFieldsUnchanged": true,
+      "createdOwnerIsActor": true,
+      "exportHasNoForeignPlansOrTasks": true
+    },
+    {
+      "label": "anonymous",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site"
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "로그인이 필요합니다."
+        }
+      }
+    },
+    {
+      "label": "anonymous",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/tasks?planId=3b4b67c3-ef34-4416-9323-a18a74f282ab",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site"
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "로그인이 필요합니다."
+        }
+      }
+    },
+    {
+      "label": "anonymous",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/export",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site"
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "로그인이 필요합니다."
+        }
+      }
+    }
+  ],
+  "limitations": "Disposable QA accounts only; request headers and cookies in evidence are redacted. No real user records modified."
+}
