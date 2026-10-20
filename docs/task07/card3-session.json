@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-10-20T07:23:57.797Z",
+  "scope": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+  "method": "database-backed session",
+  "library": "better-auth@1.7.11",
+  "userId": "qk68dJolbuy99L1DqcdUxVVvqG6nSK9y",
+  "cookie": {
+    "name": "__Secure-better-auth.session_token",
+    "value": "[same original value, redacted]",
+    "attributes": [
+      "Max-Age=604800",
+      "Path=/",
+      "HttpOnly",
+      "Secure",
+      "SameSite=Lax"
+    ],
+    "maxAgeSeconds": 604800,
+    "expiresAfterDays": 7
+  },
+  "requests": [
+    {
+      "phase": "logged in",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "__Secure-better-auth.session_token=[SAME_SESSION_REDACTED]"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": []
+      }
+    },
+    {
+      "phase": "logout",
+      "request": {
+        "method": "POST",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/auth/sign-out",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "__Secure-better-auth.session_token=[SAME_SESSION_REDACTED]"
+        },
+        "body": {}
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        }
+      }
+    },
+    {
+      "phase": "replay after logout",
+      "request": {
+        "method": "GET",
+        "url": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site/api/entries",
+        "headers": {
+          "Origin": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
+          "Cookie": "__Secure-better-auth.session_token=[SAME_SESSION_REDACTED]"
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "로그인이 필요합니다."
+        }
+      }
+    }
+  ],
+  "sameOriginalCookieReplayed": true,
+  "getSessionAfterLogout": {
+    "status": 200,
+    "body": {
+      "user": null
+    }
+  },
+  "noSessionValueInRequestUrls": true,
+  "responseContainsPassword": false,
+  "limitations": "7-day elapsed-time expiry and password-change revocation were not executed. Logout replay was executed in production."
+}

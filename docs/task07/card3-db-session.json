@@ -1,0 +1,16 @@
+{
+  "logout": {
+    "table": "auth_session",
+    "binding": "DB",
+    "allRowsRead": 8,
+    "nextOffset": null,
+    "testUserId": "qk68dJolbuy99L1DqcdUxVVvqG6nSK9y",
+    "remainingSessions": 0
+  },
+  "expiration": {
+    "userId": "CZFnTUd0tenyOWJyuyFMRfcg4mLVANKo",
+    "createdAt": "2026-10-20T07:20:47.875Z",
+    "expiresAt": "2026-10-27T07:20:47.875Z",
+    "differenceSeconds": 604800
+  }
+}

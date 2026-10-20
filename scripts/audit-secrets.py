@@ -18,7 +18,7 @@ issues=[];checked={'working_files':0,'build_files':0,'git_blobs':0,'zip_files':0
 def scan(data,label):
  for name,pattern in patterns.items():
   if re.search(pattern,data):issues.append({'location':label,'pattern':name})
-for folder in ['app','db','contracts','.openai','scripts','public','dist']:
+for folder in ['app','lib','worker','db','drizzle','contracts','docs','.openai','scripts','public','dist']:
  for f in (root/folder).rglob('*'):
   if f.is_file() and f.suffix!='.zip':
    checked['build_files' if folder=='dist' else 'working_files']+=1;scan(f.read_bytes(),str(f.relative_to(root)))
