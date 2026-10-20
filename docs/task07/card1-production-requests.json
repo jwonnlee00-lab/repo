@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-20T06:15:39.211Z",
+  "checkedAt": "2026-10-20T07:18:53.043Z",
   "scope": "https://plan-do-see-diary-six.jwonnlee00.chatgpt.site",
   "password": "[not recorded]",
   "cookies": "[not recorded]",
@@ -102,6 +102,42 @@
         "body": {
           "error": "자료를 찾을 수 없습니다."
         }
+      }
+    },
+    {
+      "request": "POST /api/tasks as user B",
+      "body": {
+        "id": "[user-A-task-id]",
+        "planId": "[user-A-plan-id]",
+        "title": "다른 계정의 수정 시도",
+        "otherFields": "same as original"
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "request": "DELETE /api/tasks as user B",
+      "body": {
+        "id": "[user-A-task-id]",
+        "version": 0
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "자료를 찾을 수 없습니다."
+        }
+      }
+    },
+    {
+      "request": "GET /api/tasks as owner A after both rejected mutations",
+      "response": {
+        "status": 200,
+        "taskStillExists": true,
+        "allFieldsUnchanged": true
       }
     },
     {
