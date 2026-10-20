@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+const url=process.env.DIARY_URL||'http://127.0.0.1:8787';
+const post=v=>fetch(url+'/api/entries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(v)});
+const base={id:'',date:'2026-10-19',startDate:'2026-10-19',endDate:'2026-10-20',priority:'normal',success:'한 편 끝까지 보기',version:0,title:'QA 계획',planned:30,actual:null,done:'',review:'',next:'',parent:''};
+for(const invalid of [{planned:-1},{date:'2026-02-30'},{endDate:'2026-10-18'},{priority:'urgent'},{success:''},{actual:0}])assert.equal((await post({...base,...invalid})).status,400);
+let r=await post(base);assert.equal(r.status,200);const initial=await r.json();
+r=await post({...initial,title:'수정된 QA 계획',planned:45,priority:'high'});assert.equal(r.status,200);const edited=await r.json();assert.equal(edited.id,initial.id);assert.equal(edited.version,1);
+assert.equal((await post({...initial,title:'오래된 화면의 수정'})).status,409);
+let history=await(await fetch(url+'/api/entries?history='+initial.id)).json();assert.equal(history.length,2);assert.equal(history[0].plan.title,base.title);assert.equal(history[0].plan.planned,30);assert.equal(history[1].plan.planned,45);assert.equal(history[1].plan.priority,'high');
+r=await post({...edited,actual:0,done:'안했다'});assert.equal(r.status,200);
+history=await(await fetch(url+'/api/entries?history='+initial.id)).json();assert.equal(history.length,3);assert.equal(history[0].plan.title,base.title);assert.equal(history[2].plan.actual,0);
+assert.equal((await fetch(url+'/api/entries',{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:initial.id})})).status,200);
+assert.equal((await fetch(url+'/api/entries?history='+initial.id)).status,404);
+console.log('PASS T06-C04~C08: period, priority, success, estimate, immutable initial history, conflict handling, zero minutes, delete');
