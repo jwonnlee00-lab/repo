@@ -1,0 +1,432 @@
+{
+  "contractVersion": "pds-schema-v2",
+  "database": "Cloudflare D1 (SQLite)",
+  "schemaSource": "db/schema.ts",
+  "exportFormat": {
+    "formatVersion": 2,
+    "tables": "data keys use exact SQL table names; row keys use fields API names listed here",
+    "rawJsonColumns": [
+      "tasks.tags",
+      "plan_history.snapshot"
+    ],
+    "contains": [
+      "entries",
+      "plan_history",
+      "tasks",
+      "executions",
+      "completions",
+      "carryovers",
+      "derived review snapshot",
+      "schema contract"
+    ],
+    "importSupported": false
+  },
+  "tables": {
+    "entries": {
+      "primaryKey": [
+        "id"
+      ],
+      "fields": {
+        "id": {
+          "column": "id",
+          "type": "string",
+          "nullable": false
+        },
+        "date": {
+          "column": "date",
+          "type": "string",
+          "nullable": false,
+          "format": "YYYY-MM-DD",
+          "timezone": "Asia/Seoul"
+        },
+        "title": {
+          "column": "title",
+          "type": "string",
+          "nullable": false
+        },
+        "startDate": {
+          "column": "start_date",
+          "type": "string",
+          "nullable": true,
+          "format": "YYYY-MM-DD",
+          "timezone": "Asia/Seoul"
+        },
+        "endDate": {
+          "column": "end_date",
+          "type": "string",
+          "nullable": true,
+          "format": "YYYY-MM-DD",
+          "timezone": "Asia/Seoul"
+        },
+        "priority": {
+          "column": "priority",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "high",
+            "normal",
+            "low"
+          ]
+        },
+        "success": {
+          "column": "success",
+          "type": "string",
+          "nullable": true
+        },
+        "version": {
+          "column": "version",
+          "type": "integer",
+          "nullable": false
+        },
+        "planned": {
+          "column": "planned",
+          "type": "integer",
+          "nullable": false,
+          "unit": "minute",
+          "minimum": 1,
+          "maximum": 1440
+        },
+        "actual": {
+          "column": "actual",
+          "type": "integer",
+          "nullable": true,
+          "unit": "minute",
+          "minimum": 0,
+          "maximum": 1440,
+          "description": "과거 계획 단위 메모. 할 일 실행 집계에는 사용하지 않음"
+        },
+        "done": {
+          "column": "done",
+          "type": "string",
+          "nullable": false
+        },
+        "review": {
+          "column": "review",
+          "type": "string",
+          "nullable": false
+        },
+        "next": {
+          "column": "next",
+          "type": "string",
+          "nullable": false
+        },
+        "parent": {
+          "column": "parent",
+          "type": "string",
+          "nullable": false,
+          "description": "다음 계획의 출발 계획 ID. 연결 없으면 빈 문자열, DB FK 아님"
+        }
+      }
+    },
+    "plan_history": {
+      "primaryKey": [
+        "entryId",
+        "version"
+      ],
+      "fields": {
+        "entryId": {
+          "column": "entry_id",
+          "type": "string",
+          "nullable": false
+        },
+        "version": {
+          "column": "version",
+          "type": "integer",
+          "nullable": false
+        },
+        "snapshot": {
+          "column": "snapshot",
+          "type": "string",
+          "nullable": false,
+          "encoding": "JSON string of the full entries row at that version"
+        },
+        "savedAt": {
+          "column": "saved_at",
+          "type": "string",
+          "nullable": false,
+          "format": "RFC3339 UTC, Z suffix"
+        }
+      }
+    },
+    "tasks": {
+      "primaryKey": [
+        "id"
+      ],
+      "fields": {
+        "id": {
+          "column": "id",
+          "type": "string",
+          "nullable": false
+        },
+        "planId": {
+          "column": "plan_id",
+          "type": "string",
+          "nullable": false
+        },
+        "title": {
+          "column": "title",
+          "type": "string",
+          "nullable": false
+        },
+        "dueDate": {
+          "column": "due_date",
+          "type": "string",
+          "nullable": false,
+          "format": "YYYY-MM-DD",
+          "timezone": "Asia/Seoul"
+        },
+        "priority": {
+          "column": "priority",
+          "type": "string",
+          "nullable": false,
+          "enum": [
+            "high",
+            "normal",
+            "low"
+          ]
+        },
+        "tags": {
+          "column": "tags",
+          "type": "string",
+          "nullable": false,
+          "encoding": "JSON string array; API responses decode it",
+          "maxItems": 10
+        },
+        "estimated": {
+          "column": "estimated",
+          "type": "integer",
+          "nullable": true,
+          "unit": "minute",
+          "description": "null은 미정. 0분 실행과 구분함",
+          "minimum": 1,
+          "maximum": 1440
+        },
+        "completed": {
+          "column": "completed",
+          "type": "boolean",
+          "nullable": false,
+          "databaseEncoding": "SQLite INTEGER 0/1"
+        },
+        "createdAt": {
+          "column": "created_at",
+          "type": "string",
+          "nullable": false,
+          "format": "RFC3339 UTC, Z suffix"
+        },
+        "version": {
+          "column": "version",
+          "type": "integer",
+          "nullable": false
+        }
+      }
+    },
+    "executions": {
+      "primaryKey": [
+        "id"
+      ],
+      "unique": [
+        [
+          "taskId",
+          "startedAt",
+          "endedAt"
+        ]
+      ],
+      "fields": {
+        "id": {
+          "column": "id",
+          "type": "string",
+          "nullable": false,
+          "description": "실행 요청 UUID. 멱등성 키"
+        },
+        "taskId": {
+          "column": "task_id",
+          "type": "string",
+          "nullable": false
+        },
+        "startedAt": {
+          "column": "started_at",
+          "type": "string",
+          "nullable": false,
+          "format": "RFC3339 UTC, Z suffix"
+        },
+        "endedAt": {
+          "column": "ended_at",
+          "type": "string",
+          "nullable": false,
+          "format": "RFC3339 UTC, Z suffix"
+        },
+        "minutes": {
+          "column": "minutes",
+          "type": "integer",
+          "nullable": false,
+          "unit": "minute",
+          "derivation": "Math.round((endedAt-startedAt)/60000)"
+        },
+        "blocked": {
+          "column": "blocked",
+          "type": "string",
+          "nullable": false
+        },
+        "note": {
+          "column": "note",
+          "type": "string",
+          "nullable": false
+        },
+        "createdAt": {
+          "column": "created_at",
+          "type": "string",
+          "nullable": false,
+          "format": "RFC3339 UTC, Z suffix"
+        }
+      }
+    },
+    "completions": {
+      "primaryKey": [
+        "id"
+      ],
+      "unique": [
+        [
+          "taskId",
+          "taskVersion"
+        ]
+      ],
+      "fields": {
+        "id": {
+          "column": "id",
+          "type": "string",
+          "nullable": false,
+          "description": "완료 요청 UUID. 멱등성 키"
+        },
+        "taskId": {
+          "column": "task_id",
+          "type": "string",
+          "nullable": false
+        },
+        "taskVersion": {
+          "column": "task_version",
+          "type": "integer",
+          "nullable": false
+        },
+        "createdAt": {
+          "column": "created_at",
+          "type": "string",
+          "nullable": false,
+          "format": "RFC3339 UTC, Z suffix"
+        }
+      }
+    },
+    "carryovers": {
+      "primaryKey": [
+        "sourcePlanId"
+      ],
+      "fields": {
+        "sourcePlanId": {
+          "column": "source_plan_id",
+          "type": "string",
+          "nullable": false
+        },
+        "nextPlanId": {
+          "column": "next_plan_id",
+          "type": "string",
+          "nullable": false
+        },
+        "improvement": {
+          "column": "improvement",
+          "type": "string",
+          "nullable": false
+        },
+        "nextDate": {
+          "column": "next_date",
+          "type": "string",
+          "nullable": false,
+          "format": "YYYY-MM-DD",
+          "timezone": "Asia/Seoul"
+        },
+        "planned": {
+          "column": "planned",
+          "type": "integer",
+          "nullable": false,
+          "unit": "minute"
+        },
+        "createdAt": {
+          "column": "created_at",
+          "type": "string",
+          "nullable": false,
+          "format": "RFC3339 UTC, Z suffix"
+        }
+      }
+    }
+  },
+  "relations": [
+    {
+      "from": "tasks.planId",
+      "to": "entries.id",
+      "enforcement": "DB FOREIGN KEY ON DELETE CASCADE"
+    },
+    {
+      "from": "executions.taskId",
+      "to": "tasks.id",
+      "enforcement": "DB FOREIGN KEY ON DELETE CASCADE"
+    },
+    {
+      "from": "completions.taskId",
+      "to": "tasks.id",
+      "enforcement": "DB FOREIGN KEY ON DELETE CASCADE"
+    },
+    {
+      "from": "plan_history.entryId",
+      "to": "entries.id",
+      "enforcement": "application relation; entry deletion explicitly deletes history"
+    },
+    {
+      "from": "entries.parent",
+      "to": "entries.id",
+      "enforcement": "application relation; no DB FK"
+    },
+    {
+      "from": "carryovers.sourcePlanId",
+      "to": "entries.id",
+      "enforcement": "application relation; entry deletion explicitly deletes matching carryover"
+    },
+    {
+      "from": "carryovers.nextPlanId",
+      "to": "entries.id",
+      "enforcement": "application relation; creation trigger creates next entry, no DB FK"
+    }
+  ],
+  "dateRules": {
+    "displayTimezone": "Asia/Seoul",
+    "dateOnly": "날짜만 있는 값은 시간대 변환하지 않음",
+    "inputExecution": "datetime-local input interpreted as Asia/Seoul (+09:00)",
+    "storageInstant": "new Date(value).toISOString(), UTC Z",
+    "executionDuration": "positive elapsed duration, at most 7 days; integer minutes rounded to nearest minute",
+    "period": "inclusive task dueDate between from and to",
+    "delay": "!completed && dueDate < Seoul today YYYY-MM-DD",
+    "snapshotTimestamp": "exportedAt UTC and today Asia/Seoul returned explicitly"
+  },
+  "reviewRules": {
+    "planned": "count live tasks in selected scope",
+    "completed": "count tasks where completed=true; completion event count is historical and not used here",
+    "delayed": "count incomplete tasks with dueDate < Seoul today",
+    "blocked": "count distinct tasks having at least one execution.blocked.trim() nonempty",
+    "estimated": "sum task.estimated; null contributes 0 and is counted as unknown",
+    "actual": "sum all executions.minutes belonging to scoped tasks, regardless of execution date",
+    "difference": "actual-estimated",
+    "empty": "all numeric totals 0",
+    "legacy": "entries.actual/done/review preserved as legacy diary fields, not counted as task execution logs"
+  },
+  "triggers": {
+    "plan_initial": "snapshot on entry creation",
+    "plan_preserve": "preserve old version before update",
+    "plan_revision": "snapshot new version after update",
+    "completion_sets_status": "set task complete and increment version in the same transaction",
+    "carryover_creates_plan": "one carryover per source; insert next plan in same transaction"
+  },
+  "sortRules": {
+    "default": "dueDate ascending",
+    "ties": "createdAt ascending, id ascending",
+    "estimated": "null last",
+    "priority": "high, normal, low"
+  },
+  "disclosure": "No login. Anyone with the URL can read, edit, delete and export the shared dataset."
+}
