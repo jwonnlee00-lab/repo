@@ -405,7 +405,7 @@
     "dateOnly": "날짜만 있는 값은 시간대 변환하지 않음",
     "inputExecution": "datetime-local input interpreted as Asia/Seoul (+09:00)",
     "storageInstant": "new Date(value).toISOString(), UTC Z",
-    "executionDuration": "positive elapsed duration, at most 7 days; integer minutes rounded to nearest minute",
+    "executionDuration": "performed: at least 1 minute and at most 7 days, rounded to minute; explicit notExecuted: equal date-only sentinels, 0 minutes, required note",
     "period": "inclusive task dueDate between from and to",
     "delay": "!completed && dueDate < Seoul today YYYY-MM-DD",
     "snapshotTimestamp": "exportedAt UTC and today Asia/Seoul returned explicitly"
@@ -446,5 +446,11 @@
       "legacy_claims"
     ],
     "legacyTransfer": "operator-confirmed one-time claim; email signup alone does not transfer records"
+  },
+  "executionEditing": {
+    "method": "POST /api/executions with id and previous",
+    "identity": "id and taskId unchanged; owner verified through task plan; createdAt unchanged",
+    "concurrency": "previous startedAt, endedAt, blocked, note must match atomically",
+    "zeroDuration": "notExecuted=true requires equal startedAt/endedAt and a note. UI uses Seoul midnight as date-only sentinel and labels minutes=0 as not executed, never actual work at midnight. No completion created."
   }
 }

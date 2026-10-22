@@ -1,0 +1,88 @@
+{
+  "checkedAt": "2026-10-22T00:40:15.221Z",
+  "base": "http://127.0.0.1:8787",
+  "checks": [
+    {
+      "label": "signup A",
+      "status": 200
+    },
+    {
+      "label": "plan A",
+      "status": 200
+    },
+    {
+      "label": "task A",
+      "status": 200
+    },
+    {
+      "label": "signup B",
+      "status": 200
+    },
+    {
+      "label": "plan B",
+      "status": 200
+    },
+    {
+      "label": "task B",
+      "status": 200
+    },
+    {
+      "label": "create log",
+      "status": 200
+    },
+    {
+      "label": "create log",
+      "status": 200
+    },
+    {
+      "label": "foreign task edit",
+      "status": 404
+    },
+    {
+      "label": "own task with foreign log id",
+      "status": 404
+    },
+    {
+      "label": "edit date and duration",
+      "status": 200
+    },
+    {
+      "label": "stale overwrite rejected",
+      "status": 409
+    },
+    {
+      "label": "duplicate time rejected",
+      "status": 409
+    },
+    {
+      "label": "end before start",
+      "status": 400
+    },
+    {
+      "label": "correct to zero minutes",
+      "status": 200
+    },
+    {
+      "label": "zero without explicit flag",
+      "status": 400
+    },
+    {
+      "label": "review after edit",
+      "status": 200
+    },
+    {
+      "label": "anonymous edit",
+      "status": 401
+    }
+  ],
+  "idAndCreatedAtPreserved": true,
+  "logCount": 2,
+  "taskUnchanged": true,
+  "review": {
+    "estimated": 60,
+    "actual": 45,
+    "completed": 0
+  },
+  "password": "[not recorded]",
+  "cookies": "[not recorded]"
+}
